@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+const Title = styled.h1`
+  margin-top: 0.5em;
+`;
+
 const Card = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -26,16 +30,19 @@ const Icon = styled.i`
 const SoloCardHeader = styled.div`
   background-color: #e4955d;
   color: white;
+  margin-bottom: 0.5em;
 `;
 
 const DuoCardHeader = styled.div`
   background-color: #48a59f;
   color: white;
+  margin-bottom: 0.5em;
 `;
 
 const SquadCardHeader = styled.div`
   background-color: #6d6aaa;
   color: white;
+  margin-bottom: 0.5em;
 `;
 
 export default class PUBG extends Component {
@@ -133,7 +140,7 @@ export default class PUBG extends Component {
   render() {
     return (
       <Card className="card p-1">
-        <h1>Player Unknown Battle Grounds</h1>
+        <Title>Player Unknown Battle Grounds</Title>
         <div className="container-fluid">
           <Row className="row ">
             <div className="col-12">
@@ -160,12 +167,23 @@ export default class PUBG extends Component {
                 </SoloCardHeader>
                 {this.state.tpp_solo_stats.showInfo ? (
                   <React.Fragment>
-                    <div>K/D Ratio: {this.state.tpp_solo_stats.kdRatio}</div>
-                    <div>
-                      Average Damage: {this.state.tpp_solo_stats.averageDamage}
+                    <div className="row">
+                      <div className="col-7">K/D Ratio: </div>
+                      <div className="col-5">
+                        {this.state.tpp_solo_stats.kdRatio}
+                      </div>
                     </div>
-                    <div>
-                      Longest Kill: {this.state.tpp_solo_stats.longestKill}m
+                    <div className="row">
+                      <div className="col-7">Average Damage: </div>
+                      <div className="col-5">
+                        {this.state.tpp_solo_stats.averageDamage}
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-7">Longest Kill: </div>
+                      <div className="col-5">
+                        {this.state.tpp_solo_stats.longestKill}m
+                      </div>
                     </div>
                   </React.Fragment>
                 ) : (
@@ -193,12 +211,23 @@ export default class PUBG extends Component {
                 </DuoCardHeader>
                 {this.state.tpp_duo_stats.showInfo ? (
                   <React.Fragment>
-                    <div>K/D Ratio: {this.state.tpp_duo_stats.kdRatio}</div>
-                    <div>
-                      Average Damage: {this.state.tpp_duo_stats.averageDamage}
+                    <div className="row">
+                      <div className="col-7">K/D Ratio: </div>
+                      <div className="col-5">
+                        {this.state.tpp_duo_stats.kdRatio}
+                      </div>
                     </div>
-                    <div>
-                      Longest Kill: {this.state.tpp_duo_stats.longestKill}m
+                    <div className="row">
+                      <div className="col-7">Average Damage: </div>
+                      <div className="col-5">
+                        {this.state.tpp_duo_stats.averageDamage}
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-7">Longest Kill: </div>
+                      <div className="col-5">
+                        {this.state.tpp_duo_stats.longestKill}m
+                      </div>
                     </div>
                   </React.Fragment>
                 ) : (
@@ -228,12 +257,23 @@ export default class PUBG extends Component {
                 </SquadCardHeader>
                 {this.state.tpp_squad_stats.showInfo ? (
                   <React.Fragment>
-                    <div>K/D Ratio: {this.state.tpp_squad_stats.kdRatio}</div>
-                    <div>
-                      Average Damage: {this.state.tpp_squad_stats.averageDamage}
+                    <div className="row">
+                      <div className="col-7">K/D Ratio: </div>
+                      <div className="col-5">
+                        {this.state.tpp_squad_stats.kdRatio}
+                      </div>
                     </div>
-                    <div>
-                      Longest Kill: {this.state.tpp_squad_stats.longestKill}m
+                    <div className="row">
+                      <div className="col-7">Average Damage: </div>
+                      <div className="col-5">
+                        {this.state.tpp_squad_stats.averageDamage}
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-7">Longest Kill: </div>
+                      <div className="col-5">
+                        {this.state.tpp_squad_stats.longestKill}m
+                      </div>
                     </div>
                   </React.Fragment>
                 ) : (
@@ -251,17 +291,39 @@ export default class PUBG extends Component {
             <StatCard className="col-md-4 ">
               <div className="card">
                 <SoloCardHeader>
-                  Solo
-                  <Icon className="fas fa-male" />
+                  <div className="row">
+                    <div className="col-5">
+                      Solo
+                      <Icon className="fas fa-male" />
+                    </div>
+                    <div className="col-7">
+                      {this.state.fpp_solo_stats.showInfo
+                        ? `Games Played: ${
+                            this.state.fpp_solo_stats.gamesPlayed
+                          }`
+                        : ''}
+                    </div>
+                  </div>
                 </SoloCardHeader>
                 {this.state.fpp_solo_stats.showInfo ? (
                   <React.Fragment>
-                    <div>K/D Ratio: {this.state.fpp_solo_stats.kdRatio}</div>
-                    <div>
-                      Average Damage: {this.state.fpp_solo_stats.averageDamage}
+                    <div className="row">
+                      <div className="col-7">K/D Ratio: </div>
+                      <div className="col-5">
+                        {this.state.fpp_solo_stats.kdRatio}
+                      </div>
                     </div>
-                    <div>
-                      Longest Kill: {this.state.fpp_solo_stats.longestKill}m
+                    <div className="row">
+                      <div className="col-7">Average Damage: </div>
+                      <div className="col-5">
+                        {this.state.fpp_solo_stats.averageDamage}
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-7">Longest Kill: </div>
+                      <div className="col-5">
+                        {this.state.fpp_solo_stats.longestKill}m
+                      </div>
                     </div>
                   </React.Fragment>
                 ) : (
@@ -272,18 +334,41 @@ export default class PUBG extends Component {
             <StatCard className="col-md-4 ">
               <div className="card">
                 <DuoCardHeader>
-                  Duo <Icon className="fas fa-male" />
-                  <Icon className="fas fa-male" />
+                  <div className="row">
+                    <div className="col-5">
+                      Duo
+                      <Icon className="fas fa-male" />
+                      <Icon className="fas fa-male" />
+                    </div>
+                    <div className="col-7">
+                      {this.state.fpp_duo_stats.showInfo
+                        ? `Games Played: ${
+                            this.state.fpp_duo_stats.gamesPlayed
+                          }`
+                        : ''}
+                    </div>
+                  </div>
                 </DuoCardHeader>
 
                 {this.state.fpp_duo_stats.showInfo ? (
                   <React.Fragment>
-                    <div>K/D Ratio: {this.state.fpp_duo_stats.kdRatio}</div>
-                    <div>
-                      Average Damage: {this.state.fpp_duo_stats.averageDamage}
+                    <div className="row">
+                      <div className="col-7">K/D Ratio: </div>
+                      <div className="col-5">
+                        {this.state.fpp_duo_stats.kdRatio}
+                      </div>
                     </div>
-                    <div>
-                      Longest Kill: {this.state.fpp_duo_stats.longestKill}m
+                    <div className="row">
+                      <div className="col-7">Average Damage: </div>
+                      <div className="col-5">
+                        {this.state.fpp_duo_stats.averageDamage}
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-7">Longest Kill: </div>
+                      <div className="col-5">
+                        {this.state.fpp_duo_stats.longestKill}m
+                      </div>
                     </div>
                   </React.Fragment>
                 ) : (
@@ -294,19 +379,42 @@ export default class PUBG extends Component {
             <StatCard className="col-md-4 ">
               <div className="card">
                 <SquadCardHeader>
-                  Squad <Icon className="fas fa-male" />
-                  <Icon className="fas fa-male" />
-                  <Icon className="fas fa-male" />
-                  <Icon className="fas fa-male" />
+                  <div className="row">
+                    <div className="col-5">
+                      Squad
+                      <Icon className="fas fa-male" />
+                      <Icon className="fas fa-male" />
+                      <Icon className="fas fa-male" />
+                      <Icon className="fas fa-male" />
+                    </div>
+                    <div className="col-7">
+                      {this.state.fpp_squad_stats.showInfo
+                        ? `Games Played: ${
+                            this.state.fpp_squad_stats.gamesPlayed
+                          }`
+                        : ''}
+                    </div>
+                  </div>
                 </SquadCardHeader>
                 {this.state.fpp_squad_stats.showInfo ? (
                   <React.Fragment>
-                    <div>K/D Ratio: {this.state.fpp_squad_stats.kdRatio}</div>
-                    <div>
-                      Average Damage: {this.state.fpp_squad_stats.averageDamage}
+                    <div className="row">
+                      <div className="col-7">K/D Ratio: </div>
+                      <div className="col-5">
+                        {this.state.fpp_squad_stats.kdRatio}
+                      </div>
                     </div>
-                    <div>
-                      Longest Kill: {this.state.fpp_squad_stats.longestKill}m
+                    <div className="row">
+                      <div className="col-7">Average Damage: </div>
+                      <div className="col-5">
+                        {this.state.fpp_squad_stats.averageDamage}
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-7">Longest Kill: </div>
+                      <div className="col-5">
+                        {this.state.fpp_squad_stats.longestKill}m
+                      </div>
                     </div>
                   </React.Fragment>
                 ) : (
