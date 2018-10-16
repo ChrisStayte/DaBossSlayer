@@ -15,6 +15,10 @@ const Row = styled.div`
   margin-bottom: 1em;
 `;
 
+const StatCard = styled.div`
+  margin-bottom: 1em;
+`;
+
 const Icon = styled.i`
   margin-left: 3px;
 `;
@@ -117,13 +121,12 @@ export default class PUBG extends Component {
     return (
       <Card className="card p-2">
         <h1>Player Unknown Battle Grounds</h1>
-
         <div className="container-fluid">
           <Row className="row ">
             <div className="col-12">
               <h5>Third Person</h5>
             </div>
-            <div className="col-4 ">
+            <StatCard className="col-md-4">
               <div className="card">
                 <SoloCardHeader>
                   Solo
@@ -132,8 +135,8 @@ export default class PUBG extends Component {
 
                 <div>KD Ratio: {this.state.tpp_solo_stats.kdratio}</div>
               </div>
-            </div>
-            <div className="col-4 ">
+            </StatCard>
+            <StatCard className="col-md-4">
               <div className="card">
                 <DuoCardHeader>
                   Duo <Icon className="fas fa-male" />
@@ -141,8 +144,8 @@ export default class PUBG extends Component {
                 </DuoCardHeader>
                 <div>KD Ratio: {this.state.tpp_duo_stats.kdratio}</div>
               </div>
-            </div>
-            <div className="col-4 ">
+            </StatCard>
+            <StatCard className="col-md-4">
               <div className="card">
                 <SquadCardHeader>
                   Squad <Icon className="fas fa-male" />
@@ -153,13 +156,13 @@ export default class PUBG extends Component {
                 <div>KD Ratio: {this.state.tpp_squad_stats.kdratio}</div>
                 <div />
               </div>
-            </div>
+            </StatCard>
           </Row>
           <Row className="row">
             <div className="col-12">
               <h5>First Person</h5>
             </div>
-            <div className="col-4 ">
+            <StatCard className="col-md-4 ">
               <div className="card">
                 <SoloCardHeader>
                   Solo
@@ -167,8 +170,8 @@ export default class PUBG extends Component {
                 </SoloCardHeader>
                 <div>KD Ratio: {this.state.fpp_solo_stats.kdratio}</div>
               </div>
-            </div>
-            <div className="col-4 ">
+            </StatCard>
+            <StatCard className="col-md-4 ">
               <div className="card">
                 <DuoCardHeader>
                   Duo <Icon className="fas fa-male" />
@@ -177,8 +180,8 @@ export default class PUBG extends Component {
 
                 <div>KD Ratio: {this.state.fpp_duo_stats.kdratio}</div>
               </div>
-            </div>
-            <div className="col-4 ">
+            </StatCard>
+            <StatCard className="col-md-4 ">
               <div className="card">
                 <SquadCardHeader>
                   Squad <Icon className="fas fa-male" />
@@ -191,7 +194,7 @@ export default class PUBG extends Component {
                   Average Damage: {this.state.fpp_squad_stats.averagedamage}
                 </div>
               </div>
-            </div>
+            </StatCard>
           </Row>
         </div>
       </Card>
