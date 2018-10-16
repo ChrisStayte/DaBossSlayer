@@ -1,0 +1,17 @@
+{
+  "window.zoomLevel": 1,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx",
+    "javascript": "htmlx"
+  },
+  "workbench.colorTheme": "Visual Studio Dark",
+  "editor.fontFamily": "Fira Code",
+  "git.enableSmartCommit": true
+}
