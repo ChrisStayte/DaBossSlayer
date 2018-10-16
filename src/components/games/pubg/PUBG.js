@@ -120,7 +120,7 @@ export default class PUBG extends Component {
   render() {
     return (
       <Card className="card p-2">
-        <h1>Player Unknown Battle Grounds</h1>
+        <h1>Player Unknown Battle Grounds 2</h1>
         <div className="container-fluid">
           <Row className="row ">
             <div className="col-12">
