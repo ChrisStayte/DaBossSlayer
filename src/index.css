@@ -6,11 +6,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*
-  For Fixed Navbar
-  */
-
-  padding-top: 4.5rem;
 }
 
 code {
