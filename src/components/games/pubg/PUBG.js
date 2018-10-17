@@ -47,7 +47,7 @@ export default class PUBG extends Component {
       }
     };
 
-    const res = await axios
+    await axios
       .get(SEASON_URL, config)
       .then(res => {
         this.setState({
@@ -64,7 +64,7 @@ export default class PUBG extends Component {
         if (e.response.status === 429) {
           this.setState({
             Status: (
-              <div class="alert alert-danger" role="alert">
+              <div className="alert alert-danger" role="alert">
                 To Many Requests... Please Try Again Later!
               </div>
             )

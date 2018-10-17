@@ -16,16 +16,14 @@ const Icon = styled.i`
 
 export default class StatCard extends Component {
   state = {
-    showInfo: true
+    labelColWidth: '8',
+    contentColWidth: '4'
   };
 
   render() {
     const { stats, title } = this.props;
 
-    // Show Info
-    this.state = {
-      showInfo: stats.roundsPlayed > 0 ? true : false
-    };
+    const showInfo = this.props.stats.roundsPlayed > 0 ? true : false;
 
     // Assits
     const assists = stats.assists;
@@ -170,117 +168,237 @@ export default class StatCard extends Component {
                 })()}
               </div>
               <div className="col-7">
-                {this.state.showInfo ? `Rounds Played: ${roundsPlayed}` : ''}
+                {showInfo ? `Rounds Played: ${roundsPlayed}` : ''}
               </div>
             </div>
           </CardHeader>
-          {this.state.showInfo ? (
+          {showInfo ? (
             <React.Fragment>
               <div className="row">
-                <div className="col-12">Main </div>
+                <div className="col-12">
+                  <span class="badge badge-secondary">Main</span>{' '}
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Average Damage: </div>
-                <div className="col-5">{averagedamage}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Average Damage:</p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{averagedamage}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">K/D Ratio: </div>
-                <div className="col-5">{kdratio}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right">K/D Ratio:</p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{kdratio}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-12">All</div>
+                <div className="col-12">
+                  <span class="badge badge-secondary">All</span>{' '}
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Assists: </div>
-                <div className="col-5">{assists}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Assists: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{assists}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Average Damage: </div>
-                <div className="col-5">{averagedamage}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Average Damage: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{averagedamage}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Boosts: </div>
-                <div className="col-5">{boosts}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Boosts: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{boosts}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Headshot Kills: </div>
-                <div className="col-5">{headshotKills}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Best Rank Point: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0"> {bestRankPoint}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Heals: </div>
-                <div className="col-5">{heals}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Headshot Kills: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0"> {headshotKills}</p>
+                </div>
+              </div>
+              <div className="row ">
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Heals: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{heals}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Kills: </div>
-                <div className="col-5">{kills}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Kills: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{kills}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Losses: </div>
-                <div className="col-5">{losses}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Losses: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{losses}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Longest Kill: </div>
-                <div className="col-5">{longestkill}m</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Longest Kill: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{longestkill}m</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Longest Time Survived: </div>
-                <div className="col-5">{longestTimeSurvived} min.</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Longest Time Survived: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{longestTimeSurvived} min.</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Losses: </div>
-                <div className="col-5">{losses}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0"> Losses: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{losses}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Rank Points: </div>
-                <div className="col-5">{rankPoints}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Rank Points: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0"> {rankPoints}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Revives: </div>
-                <div className="col-5">{revives}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Revives: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{revives}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Ride Distance: </div>
-                <div className="col-5">{rideDistance}m</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Ride Distance: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{rideDistance}m</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Road Kills: </div>
-                <div className="col-5">{roadKills}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Road Kills: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{roadKills}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Round Most Kills: </div>
-                <div className="col-5">{roundMostKills}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Round Most Kills: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{roundMostKills}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Rounds Played: </div>
-                <div className="col-5">{roundsPlayed}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Rounds Played: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0"> {roundsPlayed}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Suicides: </div>
-                <div className="col-5">{suicides}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Suicides: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{suicides}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Swim Distance: </div>
-                <div className="col-5">{swimDistance}m</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Swim Distance: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{swimDistance}m</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Team Kills: </div>
-                <div className="col-5">{teamKills}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0"> Team Kills: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{teamKills}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Top 10: </div>
-                <div className="col-5">{top10}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Top 10: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{top10}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Vehicle Destroys: </div>
-                <div className="col-5">{vehicleDestroys}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Vehicle Destroys: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{vehicleDestroys}</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Walked Distance: </div>
-                <div className="col-5">{walkDistance}m</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0"> Walked Distance: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{walkDistance}m</p>
+                </div>
               </div>
               <div className="row">
-                <div className="col-7">Weapons Acquired: </div>
-                <div className="col-5">{weaponsAcquired}</div>
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Weapons Acquired: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0">{weaponsAcquired}</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className={`col-${this.state.labelColWidth}`}>
+                  <p className="text-right m-0">Wins: </p>
+                </div>
+                <div className={`col-${this.state.contentColWidth}`}>
+                  <p className="text-left m-0"> {wins}</p>
+                </div>
               </div>
             </React.Fragment>
           ) : (
