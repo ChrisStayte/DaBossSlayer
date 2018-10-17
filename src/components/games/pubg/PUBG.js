@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+import StatCard2 from './StatCard';
+
 const Title = styled.h1`
   margin-top: 0.5em;
 `;
@@ -51,13 +53,13 @@ export default class PUBG extends Component {
     API_KEY:
       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhMDA2NmIzMC1iMjI2LTAxMzYtNjMxYi01MTc5OWNhMWUyYWUiLCJpc3MiOiJnYW1lbG9ja2VyIiwiaWF0IjoxNTM5NTUyNzcwLCJwdWIiOiJibHVlaG9sZSIsInRpdGxlIjoicHViZyIsImFwcCI6ImRhYm9zc3NsYXllcl93In0._h8DRrOqIWpewQ_cWlwzyIKEkUum6ZsljordCEuHzQU',
     USER_ID: 'account.0fa55cf9d93449968b5a065a29417e72',
-
     fpp_solo_stats: {},
     fpp_duo_stats: {},
     fpp_squad_stats: {},
     tpp_solo_stats: {},
     tpp_duo_stats: {},
-    tpp_squad_stats: {}
+    tpp_squad_stats: {},
+    solo: { solo: {} }
   };
 
   async componentDidMount() {
@@ -77,6 +79,10 @@ export default class PUBG extends Component {
     const TPP_Solo_Stats = this.getStats(
       res.data.data.attributes.gameModeStats['solo']
     );
+
+    this.setState({
+      solo: { solo: res.data.data.attributes.gameModeStats['solo'] }
+    });
 
     const TPP_Duo_Stats = this.getStats(
       res.data.data.attributes.gameModeStats['duo']
@@ -149,6 +155,11 @@ export default class PUBG extends Component {
                 <span className="badge badge-secondary">Third Person</span>
               </h5>
             </div>
+            <StatCard2
+              className="col-md-4"
+              stats={this.state.solo}
+              title="Solo"
+            />
             <StatCard className="col-md-4">
               <div className="card">
                 <SoloCardHeader>
