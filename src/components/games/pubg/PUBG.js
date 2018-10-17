@@ -65,7 +65,7 @@ export default class PUBG extends Component {
           this.setState({
             Status: (
               <div class="alert alert-danger" role="alert">
-                To Many Requests
+                To Many Requests... Please Try Again Later!
               </div>
             )
           });
