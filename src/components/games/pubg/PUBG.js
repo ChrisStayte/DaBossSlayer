@@ -32,7 +32,8 @@ export default class PUBG extends Component {
     squad: {},
     soloFpp: {},
     duoFpp: {},
-    squadFpp: {}
+    squadFpp: {},
+    Status: <div />
   };
 
   async componentDidMount() {
@@ -46,23 +47,37 @@ export default class PUBG extends Component {
       }
     };
 
-    const res = await axios.get(SEASON_URL, config);
-
-    // TPP
-    this.setState({
-      solo: res.data.data.attributes.gameModeStats['solo'],
-      duo: res.data.data.attributes.gameModeStats['duo'],
-      squad: res.data.data.attributes.gameModeStats['squad'],
-      soloFpp: res.data.data.attributes.gameModeStats['solo-fpp'],
-      duoFpp: res.data.data.attributes.gameModeStats['duo-fpp'],
-      squadFpp: res.data.data.attributes.gameModeStats['squad-fpp']
-    });
+    const res = await axios
+      .get(SEASON_URL, config)
+      .then(res => {
+        this.setState({
+          solo: res.data.data.attributes.gameModeStats['solo'],
+          duo: res.data.data.attributes.gameModeStats['duo'],
+          squad: res.data.data.attributes.gameModeStats['squad'],
+          soloFpp: res.data.data.attributes.gameModeStats['solo-fpp'],
+          duoFpp: res.data.data.attributes.gameModeStats['duo-fpp'],
+          squadFpp: res.data.data.attributes.gameModeStats['squad-fpp']
+        });
+      })
+      .catch(e => {
+        this.setState({ error: e });
+        if (e.response.status === 429) {
+          this.setState({
+            Status: (
+              <div class="alert alert-danger" role="alert">
+                To Many Requests
+              </div>
+            )
+          });
+        }
+      });
   }
 
   render() {
     return (
       <Card className="card p-1">
         <Title>Player Unknown Battle Grounds</Title>
+        {this.state.Status}
         <div className="container-fluid">
           <Row className="row ">
             <div className="col-12">
