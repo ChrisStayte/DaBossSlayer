@@ -66,11 +66,6 @@ export default class StatCard extends Component {
     // Losses
     const losses = stats.losses;
 
-    // Rank Points
-    const rankPoints = stats.rankPoints
-      ? Number.parseFloat(stats.rankPoints).toFixed(0)
-      : 0;
-
     // Revives
     const revives = stats.revives;
 
@@ -184,7 +179,7 @@ export default class StatCard extends Component {
                   <p className="text-right m-0">Average Damage:</p>
                 </div>
                 <div className={`col-${this.state.contentColWidth}`}>
-                  <p className="text-left m-0">{averagedamage}</p>
+                  <p className="text-left m-0 ">{averagedamage}</p>
                 </div>
               </div>
               <div className="row">
@@ -288,14 +283,7 @@ export default class StatCard extends Component {
                   <p className="text-left m-0">{losses}</p>
                 </div>
               </div>
-              <div className="row">
-                <div className={`col-${this.state.labelColWidth}`}>
-                  <p className="text-right m-0">Rank Points: </p>
-                </div>
-                <div className={`col-${this.state.contentColWidth}`}>
-                  <p className="text-left m-0"> {rankPoints}</p>
-                </div>
-              </div>
+
               <div className="row">
                 <div className={`col-${this.state.labelColWidth}`}>
                   <p className="text-right m-0">Revives: </p>
