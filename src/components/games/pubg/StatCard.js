@@ -77,7 +77,9 @@ export default class StatCard extends Component {
     const revives = stats.revives;
 
     // Ride Distance
-    const rideDistance = stats.rideDistance;
+    const rideDistance = stats.rideDistance
+      ? Number.parseFloat(stats.rideDistance).toFixed(0)
+      : 0;
 
     // Road Kills
     const roadKills = stats.roadKills;
@@ -93,7 +95,7 @@ export default class StatCard extends Component {
 
     // Swim Distance
     const swimDistance = stats.swimDistance
-      ? Number.parseFloat(stats.swimDistance).toFixed(1)
+      ? Number.parseFloat(stats.swimDistance).toFixed(0)
       : 0;
 
     // Team Kills
@@ -107,7 +109,7 @@ export default class StatCard extends Component {
 
     // Walking Distance
     const walkDistance = stats.walkDistance
-      ? Number.parseFloat(stats.walkDistance).toFixed(1)
+      ? Number.parseFloat(stats.walkDistance).toFixed(0)
       : 0;
 
     // Weapons Acquired
