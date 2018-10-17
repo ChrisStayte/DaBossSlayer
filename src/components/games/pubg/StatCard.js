@@ -34,7 +34,9 @@ export default class StatCard extends Component {
       : 0;
 
     // Best Rank Point
-    const bestRankPoint = stats.bestRankPoint;
+    const bestRankPoint = stats.bestRankPoint
+      ? Number.parseFloat(stats.bestRankPoint).toFixed(0)
+      : 0;
 
     // Boosts
     const boosts = stats.boosts;
