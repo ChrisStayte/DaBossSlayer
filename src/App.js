@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 
-import PUBG from './components/games/pubg/PUBG';
 import Header from './components/layout/Header';
+import PUBG from './components/games/pubg/PUBG';
 
 class App extends Component {
   render() {

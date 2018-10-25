@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import StatCard from './StatCard';
+import Logo from './PUBG.png';
 
 const Title = styled.h1`
   margin-top: 0.5em;
@@ -20,6 +21,10 @@ const Card = styled.div`
 const Row = styled.div`
   margin-top: 1em;
   margin-bottom: 1em;
+`;
+
+const LogoStyling = styled.img`
+  max-width: 6em;
 `;
 
 export default class PUBG extends Component {
@@ -60,7 +65,6 @@ export default class PUBG extends Component {
         });
       })
       .catch(e => {
-        this.setState({ error: e });
         if (e.response.status === 429) {
           this.setState({
             Status: (
@@ -76,7 +80,9 @@ export default class PUBG extends Component {
   render() {
     return (
       <Card className="card p-1">
-        <Title>Player Unknown Battle Grounds</Title>
+        <Title>
+          <LogoStyling src={Logo} />
+        </Title>
         {this.state.Status}
         <div className="container-fluid">
           <Row className="row ">
