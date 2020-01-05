@@ -44,7 +44,7 @@ export default class PUBG extends Component {
   async componentDidMount() {
     const SEASON_URL = `https://api.pubg.com/shards/steam/players/${
       this.state.USER_ID
-    }/seasons/division.bro.official.pc-2018-01`;
+    }/seasons/division.bro.official.pc-2018-03`;
     var config = {
       headers: {
         Authorization: 'Bearer ' + this.state.API_KEY,

@@ -12,6 +12,6 @@
     "javascript": "htmlx"
   },
   "workbench.colorTheme": "Visual Studio Dark",
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "Operator Mono",
   "git.enableSmartCommit": true
 }

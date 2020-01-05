@@ -6,6 +6,7 @@ import './App.css';
 
 import Header from './components/layout/Header';
 import PUBG from './components/games/pubg/PUBG';
+import INFO from './components/info/INFO';
 
 class App extends Component {
   render() {
